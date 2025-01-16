@@ -1,0 +1,43 @@
+.app{
+  width: 500px;
+  margin:0 auto;
+}
+
+.todo-template{
+  h1{
+    text-align: center;
+    padding: 10px 0;
+    background-color: darkolivegreen;
+    color: #fff;
+  }
+}
+
+.todo-insert{
+  display: flex;
+  justify-content: space-between;
+  input{
+    flex: 1;
+    font-size: 1.5rem;
+    background-color: #222;
+    color: #fff;
+    outline: none;
+    border: none;
+    &::placeholder{
+      color: #fff;
+    }
+  }
+  button{
+    background-color: #444;
+    color: #fff;
+    outline: none;
+    border: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+.todo-list{
+      label.line{
+        text-decoration: line-through;
+      }
+}

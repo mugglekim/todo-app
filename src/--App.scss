@@ -1,0 +1,71 @@
+@use 'variable';
+
+//함수를 선언하듯이 @mixin 로 스타일폼을 만들고, @include 로 사용.
+@mixin flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin bg-text-color($bg,$txt){
+  background-color: $bg;
+  color: $txt;
+}
+
+@function font-change($size){
+  @return $size*2;
+}
+
+//자식 사용
+// .app>.todo-template{
+//   background-color: skyblue;
+// }
+
+.app{
+  @if variable.$theme==dark{
+    // background-color: #222;
+    // color: $bg-color;
+    @include bg-text-color(#222,variable.$bg-color);
+  } @else{
+    // background-color: #fff;
+    // color: #222;
+    @include bg-text-color(#fff,#222);
+
+  }
+  font: {
+    size: font-change(variable.$font-size);
+    weight: bold;
+  }
+  .todo-template{
+    @include flex-center;
+    // background-color: skyblue;
+    font-size: variable.$font-size;
+    // border: 2px solid dodgerblue;
+    border: {
+      width: 2px;
+      style: solid;
+      color: dodgerblue;
+    }
+    @for $i from 1 through 5{
+      .box-#{$i} {
+        width: 100px+($i*20);
+        background-color: slateblue;
+      }
+    }
+  }
+}
+.block{
+  width: 90%; height: 200px;
+  background-color: seagreen;
+  &:hover{
+    background-color: salmon;
+  }
+  &-box{
+    width: 80%; height: 80%;
+    background-color: darkgoldenrod;
+  }
+  @media screen and (max-width:768px) {
+    &{
+      background-color: darkgrey;
+    }
+  }
+}
