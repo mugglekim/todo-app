@@ -1,6 +1,4 @@
-
-
-const TodoList = ({todos,oncheck}) => {
+const TodoList = ({todos,oncheck,onRemove}) => {
   return (
     <div className="todo-list">
       <ul>
@@ -10,8 +8,8 @@ const TodoList = ({todos,oncheck}) => {
             return (
               <li key={id}>
                 <input type="checkbox" checked={checked} onChange={()=>{oncheck(id)}}/>
-                <label className={checked? 'line':''}>{text}</label>
-                <button>❌</button>
+                <label className={checked? 'checked':null}>{text}</label>
+                <button onClick={()=>{onRemove(id)}}>-</button>
               </li>
             )
           })

@@ -1,17 +1,20 @@
+//app 컴포넌트
 .app{
   width: 500px;
   margin:0 auto;
 }
 
+//todo template 컴포넌트
 .todo-template{
   h1{
     text-align: center;
     padding: 10px 0;
-    background-color: darkolivegreen;
+    background-color: darkseagreen;
     color: #fff;
   }
 }
 
+//todo insert 컴포넌트
 .todo-insert{
   display: flex;
   justify-content: space-between;
@@ -22,6 +25,7 @@
     color: #fff;
     outline: none;
     border: none;
+    padding: 0 1rem;
     &::placeholder{
       color: #fff;
     }
@@ -33,11 +37,42 @@
     border: none;
     padding: 1rem;
     font-size: 1.5rem;
+    cursor: pointer;
   }
 }
 
+//todo list 컴포넌트
 .todo-list{
-      label.line{
-        text-decoration: line-through;
+  li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    label{
+      flex: 1;
+      font-size: 1.2rem;
+    }
+    input, button{
+      cursor: pointer;
+    }
+    button{
+      width: 2rem; height: 2rem;
+      color: tomato;
+      border: {
+        radius: 50%;
+        width: 1px;
+        style: solid;
+        color: tomato;
       }
+    }
+  }
+
+
+  label.checked{
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    color: #aaa;
+  }
 }
